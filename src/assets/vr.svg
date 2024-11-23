@@ -1,0 +1,6 @@
+<svg width="100px" height="100px" viewBox="0 0 24 24">
+    <path d="M22.75,8.58v6.84a2,2,0,0,1-2,2H14.93l-1.41-2.11A1.83,1.83,0,0,0,12,14.44h0a1.83,1.83,0,0,0-1.52.82L9.07,17.37H3.21a2,2,0,0,1-2-2V8.58a2,2,0,0,1,2-1.95H20.79A2,2,0,0,1,22.75,8.58Z" 
+            fill="none" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.95" />
+    <line x1="4.18" y1="10.05" x2="6.14" y2="10.05" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.95" />
+    <line x1="4.18" y1="13.95" x2="6.14" y2="13.95" stroke="currentColor" stroke-miterlimit="10" stroke-width="1.95" />
+</svg>

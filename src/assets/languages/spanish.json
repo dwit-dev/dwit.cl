@@ -1,5 +1,22 @@
 {
     "headline": "Transformando Industrias con @Soluciones Digitales@ Innovadoras",
     "subheadline": "Empoderando a las empresas con tecnología de punta para resolver problemas y conectar el mundo físico y digital.",
-    "contact_us": "Contáctanos"
+    "contact_us_button": "Contáctanos",
+    "services_title": "Nuestros Servicios",
+    "services_software_title": "Desarrollo de Software",
+    "services_software_description": "Soluciones personalizadas construidas con tecnologías modernas.",
+    "services_software_bullet_1": "Aplicaciones de nivel empresarial",
+    "services_software_bullet_2": "Soluciones multiplataforma (Web / Móvil / Escritorio)",
+    "services_iot_title": "Soluciones IoT",
+    "services_iot_bullet_1": "Sistemas de monitoreo en tiempo real",
+    "services_iot_bullet_2": "Seguimiento GPS en tiempo real",
+    "services_vr_3d_title": "Realidad Virtual y Modelado 3D",
+    "services_vr_3d_bullet_1": "Desarrollo en Unreal Engine 5 y Unity",
+    "services_vr_3d_bullet_2": "Modelado 3D, animación y renderizado con Blender",
+    "team_title": "Nuestro Equipo",
+    "call_to_action_title": "¿Listo para transformar tu futuro digital?",
+    "call_to_action_description": "Hablemos sobre cómo nuestras soluciones pueden ayudar a tu negocio a prosperar en la era digital.",
+    "contact": "Contacto",
+    "follow_us": "Síguenos",
+    "dwit_rights": "© 2024 Dwit SPA. Todos los derechos reservados."
 }

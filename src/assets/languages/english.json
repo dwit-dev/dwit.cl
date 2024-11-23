@@ -1,5 +1,22 @@
 {
     "headline": "Transforming Industries with Cutting-Edge @Digital Solutions@",
     "subheadline": "Empowering businesses with cutting-edge technology to solve problems and connect the physical and digital worlds.",
-    "contact_us": "Contact Us"
+    "contact_us_button": "Contact Us",
+    "services_title": "Our Services",
+    "services_description": "Efficient solutions that combine cutting-edge technology with practical innovation.",
+    "services_software_title": "Software Development",
+    "services_software_bullet_1": "Enterprise-grade applications",
+    "services_software_bullet_2": "Cross-platform solutions (Web / Mobile / Desktop)",
+    "services_iot_title": "IoT Solutions",
+    "services_iot_bullet_1": "Real-time monitoring systems",
+    "services_iot_bullet_2": "Real-time GPS tracking",
+    "services_vr_3d_title": "Virtual Reality and 3D Modeling",
+    "services_vr_3d_bullet_1": "Unreal Engine 5 and Unity development",
+    "services_vr_3d_bullet_2": "3D modeling, animation and rendering with Blender",
+    "team_title": "Our Team",
+    "call_to_action_title": "Ready to Transform Your Digital Future?",
+    "call_to_action_description": "Let's discuss how our solutions can help your business thrive in the digital age.",
+    "contact": "Contact",
+    "follow_us": "Follow Us",
+    "dwit_rights": "© 2024 Dwit SPA. All rights reserved."
 }
