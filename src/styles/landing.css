@@ -1,0 +1,14 @@
+.text-gradient-shadow {
+    text-shadow:
+        -4px 10px 15px rgba(0, 0, 0, 0.3),
+        27px 16px 51px rgba(181, 217, 130, 0.5),
+        -20px -16px 44px rgba(255, 0, 255, 0.48);
+}
+
+.scroller {
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    & > section {
+        scroll-snap-align: start;
+    }
+}

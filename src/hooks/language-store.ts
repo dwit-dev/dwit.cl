@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { persist, createJSONStorage } from "zustand/middleware";
-import { LanguageCode } from "@/hooks//language-context";
+import { LanguageCode } from "@/hooks/language-context";
 
 interface LanguageStore {
     code: LanguageCode;

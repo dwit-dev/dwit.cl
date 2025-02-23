@@ -1,5 +1,5 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Section } from "@/components/section";
+import { Card } from "@/components/ui/card";
+import { Section, ISectionProps } from "@/components/section";
 import { useLanguageContext } from "@/hooks/language-context";
 import VrIcon from "@/assets/vr.svg?react";
 import { Code2, Cpu } from "lucide-react";
@@ -13,29 +13,29 @@ interface ServiceCardProps {
 function ServiceCard(props: ServiceCardProps) {
     return (
         <Card className="shadow-lg hover:shadow-xl transition-shadow">
-            <CardHeader>
+            <div className="px-8 py-1">
                 <div className="flex items-start space-x-4 h-16">
                     <div className="h-full flex items-center justify-center space-x-5">
-                        <props.icon className="w-12 h-12 text-indigo-600" />
-                        <div className="text-lg font-bold">{props.title}</div>
+                        <props.icon className="w-8 h-8 text-indigo-600" />
+                        <div className="text-subtitle font-bold">{props.title}</div>
                     </div>
                 </div>
-            </CardHeader>
-            <CardContent>
+            </div>
+            <div className="px-8 pb-8">
                 <ul className="space-y-2">
                     {props.features.map((feature, index) => (
                         <li key={index} className="flex items-start">
                             <span className="inline-block w-2 h-2 bg-indigo-600 rounded-full mt-2 mr-3" />
-                            <p className="text-gray-700 text-sm">{feature}</p>
+                            <p className="text-gray-700 text-content">{feature}</p>
                         </li>
                     ))}
                 </ul>
-            </CardContent>
+            </div>
         </Card>
     );
 }
 
-export function ServicesSection() {
+export function ServicesSection(props: ISectionProps) {
     const { t } = useLanguageContext();
 
     const services: ServiceCardProps[] = [
@@ -57,9 +57,9 @@ export function ServicesSection() {
     ];
 
     return (
-        <Section>
+        <Section section={props.section}>
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl font-bold text-center mb-8">{t("services_title")}</h2>
+                <h2 className="text-title font-bold text-center mb-8">{t("services_title")}</h2>
             </div>
             <div className="flex-grow grid grid-cols-2">
                 <div className="col-span-2 lg:col-span-1 space-y-2 my-auto">

@@ -1,5 +1,5 @@
 import { useLanguageContext } from "@/hooks/language-context";
-import { Section } from "@/components/section";
+import { Section, ISectionProps } from "@/components/section";
 
 interface TeamMemberProps {
     image: string;
@@ -13,13 +13,13 @@ function TeamMember({ image, name, role }: TeamMemberProps) {
             <div className="w-full max-w-[8rem] aspect-square rounded-full overflow-hidden">
                 <img src={image} alt={name} className="w-full h-full object-cover" />
             </div>
-            <h3 className="text-lg font-bold text-center">{name}</h3>
-            <p className="text-indigo-600 text-center">{role}</p>
+            <h3 className="text-subtitle font-bold text-center">{name}</h3>
+            <p className="text-indigo-600 text-center text-content">{role}</p>
         </div>
     );
 }
 
-export function TeamSection() {
+export function TeamSection(props: ISectionProps) {
     const { t } = useLanguageContext();
 
     const team = [
@@ -51,9 +51,9 @@ export function TeamSection() {
     ];
 
     return (
-        <Section>
+        <Section section={props.section}>
             <div className="container mx-auto px-6">
-                <h2 className="text-4xl font-bold text-center mb-8 md:mb-16">{t("team_title")}</h2>
+                <h2 className="text-title font-bold text-center mb-8 md:mb-16">{t("team_title")}</h2>
             </div>
             <div className="grid grid-cols-2 lg:grid-cols-5 gap-8 max-h-full flex-grow lg:place-items-center">
                 {team.map((member, index) => (

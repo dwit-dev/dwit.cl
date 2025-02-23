@@ -1,6 +1,7 @@
-import { Section } from "@/components/section";
-import { useLanguageContext } from "@/hooks/language-context";
+import "@/styles/landing.css";
+import { Section, ISectionProps } from "@/components/section";
 import { Button } from "@/components/ui/button";
+import { useLanguageContext } from "@/hooks/language-context";
 
 interface AccentTextProps {
     text: string;
@@ -8,12 +9,10 @@ interface AccentTextProps {
 
 const AccentText: React.FC<AccentTextProps> = ({ text }) => {
     const parseText = (input: string): React.ReactNode[] => {
-        // Match all segments between @
         const parts = input.split(/(@.*?@)/);
 
         return parts.map((part, index) => {
             if (part.startsWith("@") && part.endsWith("@")) {
-                // Remove the @ symbols and apply accent styling
                 const accentContent = part.slice(1, -1);
                 return (
                     <span key={index} className="text-gradient-shadow">
@@ -23,35 +22,38 @@ const AccentText: React.FC<AccentTextProps> = ({ text }) => {
                     </span>
                 );
             }
-            return <span key={index}>{part}</span>; // Regular text
+            return <span key={index}>{part}</span>;
         });
     };
 
     return <>{parseText(text)}</>;
 };
 
-export function HeroSection() {
+export function HeroSection(props: ISectionProps) {
     const { t } = useLanguageContext();
+
     return (
-        <Section>
-            <div className="flex-grow">
+        <Section section={props.section}>
+            <div className="flex-grow h-screen">
                 <div className="grid grid-cols-3">
                     <div className="col-span-3 xl:col-span-2 flex flex-col justify-start">
-                        <h1 className="font-medium text-4xl md:text-6xl lg:text-7xl uppercase">
+                        <h1 className="font-medium text-title uppercase">
                             <AccentText text={t("headline")} />
                         </h1>
                     </div>
                 </div>
-                <div className="pl-2 pt-3 grid grid-cols-3">
-                    <div className="col-span-2 lg:col-span-1">
-                        <p className="font-light">{t("subheadline")}</p>
+                <div className="pl-2 pt-3 pb-16 grid grid-cols-3">
+                    <div className="col-span-2 xl:col-span-1">
+                        <p className="font-light text-subtitle">{t("subheadline")}</p>
                     </div>
                 </div>
-            </div>
-            <div className="self-start mt-auto w-full flex justify-center md:justify-start">
-                <Button className="m-5 font-light text-1xl p-7 mb-20 md:text-2xl md:p-10 rounded-full">
-                    {t("contact_us_button")}
-                </Button>
+                <div
+                    className="flex md:contents justify-center items-center"
+                >
+                    <Button className="font-light text-1xl p-7 mx-5 mb-20 md:text-2xl md:p-10 rounded-full">
+                        {t("contact_us_button")}
+                    </Button>
+                </div>
             </div>
         </Section>
     );

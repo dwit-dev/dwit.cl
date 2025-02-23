@@ -1,4 +1,5 @@
 import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
+import { Section, ISectionProps } from "@/components/section";
 
 interface ProjectCardProps {
     image: string;
@@ -28,7 +29,7 @@ function ProjectCard(props: ProjectCardProps) {
     );
 }
 
-export function StudioShowcaseSection() {
+export function StudioShowcaseSection(props: ISectionProps) {
     const projects: ProjectCardProps[] = [
         {
             image: "",
@@ -48,14 +49,14 @@ export function StudioShowcaseSection() {
     ]; 
 
     return (
-        <section className={`h-screen w-full`}>
+        <Section section={props.section} disableClasses={true}>
             <div className="relative w-full h-full">
                 <div className="absolute z-[-100] w-full h-full grid grid-cols-1 lg:grid-cols-2">
                     <div className="col-span-1">
                         <img src="brush-stroke.png" className="h-screen w-full scale-[1.2]" />
                     </div>
                 </div>
-                <div className="px-8 h-full max-w-screen-2xl mx-auto flex flex-col">
+                <div className="px-8 pt-20 md:pt-16 h-full max-w-screen-2xl mx-auto flex flex-col">
                     <h1 className="text-white text-7xl px-8 pt-16 md:pt-24">Studio</h1>
                     <h1 className="text-gray-500 text-5xl pt-4 px-16 pb-8">Showcase</h1>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-8 flex-grow md:place-items-center">
@@ -65,6 +66,6 @@ export function StudioShowcaseSection() {
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     );
 }

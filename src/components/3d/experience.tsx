@@ -3,16 +3,278 @@ import { motion } from "framer-motion-3d";
 
 interface ExperienceProps {
     section: number;
+    windowWidth: number;
 }
+
+interface Animation {
+    x: number;
+    y: number;
+    scaleX: number;
+    scaleY: number;
+    scaleZ: number;
+    rotateX: number;
+    rotateY: number;
+    rotateZ: number;
+}
+
+interface AnimationType {
+    desktop: Record<number, Animation>;
+    mobile: Record<number, Animation>;
+}
+
+const vrAnimations: AnimationType = {
+    desktop: {
+        0: {
+            x: -0.52,
+            y: -1,
+            scaleX: 0.32,
+            scaleY: 0.32,
+            scaleZ: 0.32,
+            rotateX: 0,
+            rotateY: Math.PI / -2,
+            rotateZ: 0,
+        },
+        2: {
+            x: 1,
+            y: 0.7,
+            scaleX: 0.4 * 2,
+            scaleY: 0.4 * 2,
+            scaleZ: 0.4 * 2,
+            rotateX: Math.PI,
+            rotateY: Math.PI / 64,
+            rotateZ: Math.PI / -1.05,
+        },
+        3: {
+            x: 10,
+            y: -1,
+            scaleX: 0.32,
+            scaleY: 0.32,
+            scaleZ: 0.32,
+            rotateX: 0,
+            rotateY: Math.PI / -2,
+            rotateZ: 0,
+        },
+        4: {
+            x: 10,
+            y: -1,
+            scaleX: 0.32,
+            scaleY: 0.32,
+            scaleZ: 0.32,
+            rotateX: 0,
+            rotateY: Math.PI / -2,
+            rotateZ: 0,
+        }
+    },
+    mobile: {
+        0: {
+            x: -0.52,
+            y: -1,
+            scaleX: 0.32,
+            scaleY: 0.32,
+            scaleZ: 0.32,
+            rotateX: 0,
+            rotateY: Math.PI / -2,
+            rotateZ: 0,
+        },
+        3: {
+            x: 10,
+            y: -1,
+            scaleX: 0.32,
+            scaleY: 0.32,
+            scaleZ: 0.32,
+            rotateX: 0,
+            rotateY: Math.PI / -2,
+            rotateZ: 0,
+        },
+        4: {
+            x: 10,
+            y: -1,
+            scaleX: 0.32,
+            scaleY: 0.32,
+            scaleZ: 0.32,
+            rotateX: 0,
+            rotateY: Math.PI / -2,
+            rotateZ: 0,
+        },
+    }
+};
+
+const laptopAnimations: AnimationType = {
+    desktop: {
+        0: {
+            x: 0.08,
+            y: -1,
+            scaleX: 0.24,
+            scaleY: 0.24,
+            scaleZ: 0.24,
+            rotateX: 0,
+            rotateY: Math.PI / 64,
+            rotateZ: 0,
+        },
+        1: {
+            x: 1,
+            y: 0.2,
+            scaleX: 0.3,
+            scaleY: 0.3,
+            scaleZ: 0.3,
+            rotateX: 0,
+            rotateY: Math.PI / 64,
+            rotateZ: 0,
+        },
+        3: {
+            x: 10,
+            y: -1,
+            scaleX: 0.24,
+            scaleY: 0.24,
+            scaleZ: 0.24,
+            rotateX: 0,
+            rotateY: Math.PI / 64,
+            rotateZ: 0,
+        },
+        4: {
+            x: 10,
+            y: -1,
+            scaleX: 0.24,
+            scaleY: 0.24,
+            scaleZ: 0.24,
+            rotateX: 0,
+            rotateY: Math.PI / 64,
+            rotateZ: 0,
+        },
+    },
+    mobile: {
+        0: {
+            x: 0.08,
+            y: -1,
+            scaleX: 0.24,
+            scaleY: 0.24,
+            scaleZ: 0.24,
+            rotateX: 0,
+            rotateY: Math.PI / 64,
+            rotateZ: 0,
+        },
+        1: {
+            x: 0,
+            y: 0.6,
+            scaleX: 0.4,
+            scaleY: 0.4,
+            scaleZ: 0.4,
+            rotateX: 0,
+            rotateY: Math.PI / 4,
+            rotateZ: 0,
+        },
+        3: {
+            x: 10,
+            y: -1,
+            scaleX: 0.24,
+            scaleY: 0.24,
+            scaleZ: 0.24,
+            rotateX: 0,
+            rotateY: Math.PI / 64,
+            rotateZ: 0,
+        },
+        4: {
+            x: 10,
+            y: -1,
+            scaleX: 0.24,
+            scaleY: 0.24,
+            scaleZ: 0.24,
+            rotateX: 0,
+            rotateY: Math.PI / 64,
+            rotateZ: 0,
+        },
+    }
+};
+
+const phoneAnimations: AnimationType = {
+    desktop: {
+        0: {
+            x: 0.56,
+            y: -1,
+            scaleX: 0.0048,
+            scaleY: 0.0048,
+            scaleZ: 0.0048,
+            rotateX: 0,
+            rotateY: Math.PI / 2,
+            rotateZ: 0,
+        },
+        3: {
+            x: 10,
+            y: -1,
+            scaleX: 0.0048,
+            scaleY: 0.0048,
+            scaleZ: 0.0048,
+            rotateX: 0,
+            rotateY: Math.PI / 2,
+            rotateZ: 0,
+        },
+        4: {
+            x: 0,
+            y: 0,
+            scaleX: 0.05,
+            scaleY: 0.05,
+            scaleZ: 0.05,
+            rotateX: 0,
+            rotateY: Math.PI / -4,
+            rotateZ: Math.PI / -6,
+        },
+    },
+    mobile: {
+        0: {
+            x: 0.56,
+            y: -1,
+            scaleX: 0.0048,
+            scaleY: 0.0048,
+            scaleZ: 0.0048,
+            rotateX: 0,
+            rotateY: Math.PI / 2,
+            rotateZ: 0,
+        },
+        3: {
+            x: 10,
+            y: -1,
+            scaleX: 0.0048,
+            scaleY: 0.0048,
+            scaleZ: 0.0048,
+            rotateX: 0,
+            rotateY: Math.PI / 2,
+            rotateZ: 0,
+        },
+        4: {
+            x: 0,
+            y: 0,
+            scaleX: 0.04,
+            scaleY: 0.04,
+            scaleZ: 0.04,
+            rotateX: 0,
+            rotateY: Math.PI / -4,
+            rotateZ: Math.PI / -6,
+        },
+    }
+};
+
+const getAnimation = (animations: AnimationType, section: number, windowWidth: number) => {
+    if (windowWidth < 1024) {
+        const value = animations.mobile[section];
+        if (value) {
+            return value;
+        } else {
+            return animations.mobile[0];
+        }
+    } else {
+        const value = animations.desktop[section];
+        if (value) {
+            return value;
+        } else {
+            return animations.desktop[0];
+        }
+    }
+};
 
 export function Experience(props: ExperienceProps) {
     const laptop = useGLTF("models/laptop.glb");
     const phone = useGLTF("models/phone.glb");
     const vr = useGLTF("models/vr.glb");
-
-    const start_y = -0.5; // 0 desktop
-    const start_x = 0.1; // 0.7 desktop
-    const scale = 0.8; // 1 desktop
 
     return (
         <>
@@ -20,30 +282,23 @@ export function Experience(props: ExperienceProps) {
                 <ambientLight intensity={1} />
                 <motion.primitive
                     object={laptop.scene}
-                    position={[(0 + start_x) * scale, 0 + start_y, 0]}
-                    scale={[0.3 * scale, 0.3 * scale, 0.3 * scale]}
+                    position={[0.08, -1, 0]}
+                    scale={[0.24, 0.24, 0.24]}
+                    animate={getAnimation(laptopAnimations, props.section, props.windowWidth)}
                 />
                 <motion.primitive
                     object={phone.scene}
-                    position={[(0.6 + start_x) * scale, 0 + start_y, 0]}
-                    scale={[0.006 * scale, 0.006 * scale, 0.006 * scale]}
+                    position={[0.56, -1, 0]}
+                    scale={[0.0048, 0.0048, 0.0048]}
                     rotation={[0, Math.PI / 2, 0]}
+                    animate={getAnimation(phoneAnimations, props.section, props.windowWidth)}
                 />
                 <motion.primitive
                     object={vr.scene}
-                    position={[(-0.75 + start_x) * scale, 0 + start_y, 0]}
-                    scale={[0.4 * scale, 0.4 * scale, 0.4 * scale]}
+                    position={[-0.52, -1, 0]}
+                    scale={[0.32, 0.32, 0.32]}
                     rotation={[0, Math.PI / -2, 0]}
-                    animate={{
-                        x: props.section === 1 ? 1 : (-0.75 + start_x) * scale,
-                        y: props.section === 1 ? 0.2 : 0 + start_y,
-                        scaleX: props.section === 1 ? 0.4 * 2 : 0.4 * scale,
-                        scaleY: props.section === 1 ? 0.4 * 2 : 0.4 * scale,
-                        scaleZ: props.section === 1 ? 0.4 * 2 : 0.4 * scale,
-                        rotateX: props.section === 1 ? Math.PI : 0,
-                        rotateY: props.section === 1 ? Math.PI / 64 : Math.PI / -2,
-                        rotateZ: props.section === 1 ? Math.PI / -1.05 : 0,
-                    }}
+                    animate={getAnimation(vrAnimations, props.section, props.windowWidth)}
                 />
                 {/* <primitive
                     object={vr.scene}
